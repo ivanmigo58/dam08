@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Principal-->
+    <TextView
+        android:id="@+id/textViewPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetFirst"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonPrincipal"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/buttonPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF9800"
+        android:text="RESET ALL"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetFirst"
+        app:layout_constraintLeft_toRightOf="@id/textViewPrincipal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Primero-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewFirst"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetSecond"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonMasUnoFirst"
+        app:layout_constraintTop_toBottomOf="@id/buttonPrincipal"
+        />
+
+    <Button
+        android:id="@+id/buttonMasUnoFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:text="+1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetSecond"
+        app:layout_constraintLeft_toRightOf="@id/textViewFirst"
+        app:layout_constraintRight_toLeftOf="@id/buttonResetFirst"
+        app:layout_constraintTop_toBottomOf="@id/buttonPrincipal" />
+
+    <Button
+        android:id="@+id/buttonResetFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFC107"
+        android:textColor="#FFFF"
+        android:text="RESET"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetSecond"
+        app:layout_constraintLeft_toRightOf="@id/buttonMasUnoFirst"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonPrincipal" />
+
+    <!-- Segundo-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewSecond"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetThird"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonMasUnoSecond"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetFirst"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonMasUnoSecond"
+        android:background="#4CAF50"
+        android:text="+1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetThird"
+        app:layout_constraintLeft_toRightOf="@id/textViewSecond"
+        app:layout_constraintRight_toLeftOf="@id/buttonResetSecond"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetFirst"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonResetSecond"
+        android:background="#FFC107"
+        android:textColor="#FFFF"
+        android:text="RESET"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetThird"
+        app:layout_constraintLeft_toRightOf="@id/buttonMasUnoSecond"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetFirst"
+        />
+
+    <!-- Tercero-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewThird"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetFourth"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonMasUnoThird"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetSecond"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonMasUnoThird"
+        android:background="#4CAF50"
+        android:text="+1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetFourth"
+        app:layout_constraintLeft_toRightOf="@id/textViewThird"
+        app:layout_constraintRight_toLeftOf="@id/buttonResetThird"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetSecond"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonResetThird"
+        android:background="#FFC107"
+        android:textColor="#FFFF"
+        android:text="RESET"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonResetFourth"
+        app:layout_constraintLeft_toRightOf="@id/buttonMasUnoThird"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetSecond"
+        />
+
+    <!-- Cuarto-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewFourth"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonMasUnoFourth"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetThird"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonMasUnoFourth"
+        android:background="#4CAF50"
+        android:text="+1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/textViewFourth"
+        app:layout_constraintRight_toLeftOf="@id/buttonResetFourth"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetThird"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonResetFourth"
+        android:background="#FFC107"
+        android:textColor="#FFFF"
+        android:text="RESET"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/buttonMasUnoFourth"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonResetThird"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
