@@ -12,29 +12,35 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class Jugador {
 
     interface JugadorListener {
-        void cuandoDeLaOrden(String orden);
+        void cuandoCambie(String orden);
     }
 
     Random random = new Random();
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     ScheduledFuture<?> jugando;
+    String ju;
 
     void iniciarJugada(JugadorListener jugadorListener) {
         if (jugando == null || jugando.isCancelled()) {
             jugando = scheduler.scheduleAtFixedRate(new Runnable() {
                 int ejercicio;
-                int repeticiones = -1;
 
                 @Override
                 public void run() {
-                    if (repeticiones < 0) {
-                        repeticiones = random.nextInt(3) + 3;
-                        ejercicio = random.nextInt(5)+1;
-                    }
-                    jugadorListener.cuandoDeLaOrden("EJERCICIO" + ejercicio + ":" + (repeticiones == 0 ? "CAMBIO" : repeticiones));
-                    repeticiones--;
+                   switch (ejercicio) {
+                       case 0:
+                           jugadorListener.cuandoCambie("CHUTE");
+                           break;
+
+                       case 1:
+                           jugadorListener.cuandoCambie("MARCANDO");
+                   }
+                   ejercicio++;
+                   if (ejercicio > 1) {
+                       ejercicio = 0;
+                   }
                 }
-            }, 0, 1, SECONDS);
+            }, 0, 2, SECONDS);
         }
     }
 
@@ -51,8 +57,8 @@ public class Jugador {
 
             iniciarJugada(new JugadorListener() {
                 @Override
-                public void cuandoDeLaOrden(String orden) {
-                    postValue(orden);
+                public void cuandoCambie(String ejercicio) {
+                    postValue(ejercicio);
                 }
             });
         }
@@ -60,7 +66,6 @@ public class Jugador {
         @Override
         protected void onInactive() {
             super.onInactive();
-
             pararJugada();
         }
     };

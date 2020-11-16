@@ -12,53 +12,38 @@ import androidx.lifecycle.Transformations;
 public class JugadorViewModel extends AndroidViewModel {
     Jugador jugador;
 
-    LiveData<Integer> jugadaLiveData;
-    LiveData<String> repeticionLiveData;
+    LiveData<Integer> jugadaImagenLiveData;
 
     public JugadorViewModel (@NonNull Application application) {
         super(application);
 
         jugador = new Jugador();
 
-        jugadaLiveData = Transformations.switchMap(jugador.ordenLiveData, new Function<String, LiveData<Integer>>() {
+        jugadaImagenLiveData = Transformations.switchMap(jugador.ordenLiveData, new Function<String, LiveData<Integer>>() {
             String ejercicioAnterior;
 
             @Override
             public LiveData<Integer> apply(String orden) {
-                String jugada = orden.split(";")[0];
+                int imagen;
 
-                if (!jugada.equals(ejercicioAnterior)) {
-                    ejercicioAnterior = jugada;
-                    int imagen;
-                    switch (jugada) {
-                        case "Jugada":
-                        default:
-                            imagen = R.drawable.chute;
-                            break;
-                        case "GOL":
-                            imagen = R.drawable.marcando;
-                            break;
-                    }
-                    return new MutableLiveData<>(imagen);
+                switch (orden) {
+                    case "CHUTE":
+                    default:
+                        imagen = R.drawable.chute;
+                        break;
+                    case "MARCANDO":
+                        imagen = R.drawable.marcando;
+                        break;
                 }
-                return null;
+                return new MutableLiveData<>(imagen);
             }
         });
 
-        repeticionLiveData = Transformations.switchMap(jugador.ordenLiveData, new Function<String, LiveData<String>>() {
-            @Override
-            public LiveData<String> apply(String orden) {
-                return new MutableLiveData<>(orden.split(":")[1]);
-            }
-        });
     }
 
     LiveData<Integer> obtenerJugada(){
-        return jugadaLiveData;
+        return jugadaImagenLiveData;
     }
 
-    LiveData<String> obtenerRepeticion(){
-        return repeticionLiveData;
-    }
 
 }
